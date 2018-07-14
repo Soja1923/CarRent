@@ -2,7 +2,8 @@
 var sass = require('gulp-sass');
 
 var cssDest = 'wwwroot/css';
-var cssInputFile = 'wwwroot/style.scss';
+var cssInputFile = 'wwwroot/custom/style.scss';
+var watchedFiles = 'wwwroot/custom/**/*.scss'
 
 gulp.task('buildcss', function () {
     return gulp.src(cssInputFile)
@@ -11,3 +12,5 @@ gulp.task('buildcss', function () {
         }))
         .pipe(gulp.dest(cssDest));
 });
+
+gulp.task(watchedFiles, ['buildcss']);
