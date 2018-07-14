@@ -13,4 +13,6 @@ gulp.task('buildcss', function () {
         .pipe(gulp.dest(cssDest));
 });
 
-gulp.task(watchedFiles, ['buildcss']);
+gulp.task('watch', function ()){
+    gulp.watch(watchedFiles, ['buildcss']);
+}
