@@ -1,1 +1,16 @@
-﻿
+﻿// My color
+$my-accent-color: #BE8C6B;
+$my-gray-100: #F8F8F8;
+$my-gray-200: #EEEEEE;
+$my-gray-600: #B7B7B7;
+$my-gray-800: #707070;
+$my-gray-900: #444444;
+$my-white: #FFFFFF;
+$my-black: #000000;
+$my-input-bg: #FCFCFC;
+$my-input-border-color: darken($my-gray-200, 3%);
+$my-contact-from-shadow: #292C31;
+$my-product-search-btn-color: #CCCCCC;
+
+//Colors Bootstrap 4
+$theme-colors: ( "primary":$my-accent-color );

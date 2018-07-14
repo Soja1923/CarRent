@@ -1,6 +1,8 @@
-﻿@import "wwwroot/lib/bootstrap/bootstrap";
-
+﻿//import my variables
 @import 'wwwroot/custom/base/variables';
+//import source Bootstrap 4
+@import "wwwroot/lib/bootstrap/bootstrap";
+//import my styles
 @import 'wwwroot/custom/base/mixins';
 @import 'wwwroot/custom/base/typography';
 @import 'wwwroot/custom/components/components';
