@@ -1,0 +1,12 @@
+﻿.my-header-item-link {
+    font-size: .65rem;
+
+    @include media-breakpoint-up(md) {
+        padding: 1.65rem 1.25rem;
+    }
+}
+
+.my-header-item-active {
+    background-color: $my-white;
+}
+

@@ -5,12 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - CarRent</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300i,400|Oswald:300,400,700&amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/style.css" />
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/style.css" />
+    </environment>
 </head>
 <body>
+    <!--Header-->
+    <div class="bg-primary my-header">
+        <div class="container">
+            <ul class="nav flex-column flex-md-row justify-content-lg-end text-uppercase">
+                <li class="nav-item my-header-item-active">
+                    <a class="nav-link my-header-item-link" asp-area="" asp-controller="Home" asp-action="Index">Strona główna</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white my-header-item-link" asp-area="" asp-controller="Home" asp-action="Index">Oferta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white my-header-item-link"  asp-area="" asp-controller="Home" asp-action="About">O Nas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white my-header-item-link"  asp-area="" asp-controller="Home" asp-action="Contact">Kontakt</a>
+                </li>
+                <li>
+                    @await Html.PartialAsync("_LoginPartial")
+                </li>
+            </ul>
 
+        </div>
+    </div>
+    <div class="jumbotron text-center my-hero">
+        <div class="container  my-hero-content">
+            <h1 class="text-white my-hero-header text-uppercase">Car_Rent</h1>
+            <h2 class="my-hero-subheader text-white">wypożyczalnia samochodów</h2>
+</div>
+    </div>
     <div>
         @RenderBody()
+    </div>
+
+    <div class="my-footer-top">
+        <div class="container my-footer-top-content">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-5">
+                    <h4 class="text-uppercase text-white mb-3">O projekcie</h4>
+                    <p class="my-footer-text my-footer-p">
+                        Praca wykonana w ramach zaliczenia studiów podyplomowych „PROGRAMOWANIE NA PLATFORMIE .NET”.
+                        Instytut Podstaw Informatyki Polskiej Akademii Nauk 2018 rok
+                    </p>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-5">
+                    <h4 class="text-uppercase text-white mb-3">Kontakt</h4>
+                    <ul class="list-unstyled my-footer-text my-footer-contact-list">
+                        <li class="my-footer-contact-item">
+                            <span class="mr-2"><img src="~/img/ui/user-avatar.png" /></span>
+                            Piotr Soja
+                        </li>
+                        <li class="my-footer-contact-item">
+                            <span class="mr-2"><img src="img/ui/contact-footer-icon-email.png" /></span>
+                            piotrsoja@o2.pl
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-5">
+                    <h4 class="text-uppercase text-white mb-3">Nawigacja</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="my-footer-text" href="#">Strona główna</a>
+                        </li>
+                        <li>
+                            <a class="my-footer-text" href="#">Logowanie na konto</a>
+                        </li>
+                        <li>
+                            <a class="my-footer-text" href="#">Rejestracja</a>
+                        </li>
+                        <li>
+                            <a class="my-footer-text" href="#">Oferta</a>
+                        </li>
+                        <li>
+                            <a class="my-footer-text" href="#">O Nas</a>
+                        </li>
+                        <li>
+                            <a class="my-footer-text" href="#">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <environment include="Development">
