@@ -1,0 +1,15 @@
+﻿.my-form {
+    padding: 10px 0 55px;
+
+    label {
+        margin-bottom: .2rem;
+        font-size: .625rem;
+        text-transform: uppercase;
+        word-spacing: .2rem;
+    }
+
+    .form-control {
+        border: 1px solid $my-gray-600;
+        background-color: $my-input-bg;
+    }
+}

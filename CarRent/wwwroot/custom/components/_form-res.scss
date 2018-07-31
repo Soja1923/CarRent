@@ -1,0 +1,38 @@
+﻿
+.my-form-top {
+    margin-top: 1.3rem;
+    margin-left: 1.3rem;
+    padding: 2rem;
+    position: relative;
+    background: url('../../img/garage.jpg') 50% 50% no-repeat;
+    background-size: cover;
+
+    @include media-breakpoint-up(xl) {
+        padding: 2rem 3rem;
+        margin-right: -2rem;
+    }
+
+    &:after {
+        @include bg-overlay($my-black, .4)
+    }
+}
+.my-form-header {
+    margin-bottom: .75rem;
+    letter-spacing: .08rem;
+}
+.my-content-form {
+    color: white;
+    @include relative-zindex;
+}
+.my-title-label {
+    margin-top: 1rem;
+    margin-left: .2rem;
+    line-height: 1.2;
+    @include my-font-light-sec;
+}
+.my-form-btn {
+    margin-top: .75rem;
+    padding: .1rem .5rem;
+    color: $my-black;
+    letter-spacing: .075rem;
+}

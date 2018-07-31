@@ -1,0 +1,31 @@
+﻿.my-comment {
+    padding-top: .75rem;
+}
+
+.my-comment-avatar {
+    margin-right: 1rem;
+    border-radius: 24px;
+    @include my-size(48px, 48px);
+}
+
+.my-comment-meta {
+    margin: .25rem 0;
+}
+
+.my-comment-username {
+    font-family: $my-font-family-secondary;
+    font-weight: 700;
+    letter-spacing: .075rem;
+}
+
+.my-comment-date {
+    font-family: $my-font-family-secondary;
+    font-size: .75rem;
+    letter-spacing: .1rem;
+}
+
+.my-comment-content {
+    $my-font-family-body: 'Lato';
+    font-size: .75rem;
+    line-height: 2;
+}

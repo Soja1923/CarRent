@@ -20,3 +20,10 @@
     width: $w;
     height: $h;
 }
+@mixin my-font-light-sec {
+    font-weight: 300;
+    font-family: $my-font-family-secondary;
+}
+@mixin my-basic-transition {
+    transition: all .25s ease-in-out;
+}

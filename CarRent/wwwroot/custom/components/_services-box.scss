@@ -1,0 +1,30 @@
+﻿.my-services-box {
+    margin-bottom: 40px;
+}
+
+.my-services-box-top {
+    margin-bottom: 1.4rem;
+}
+
+.my-services-box-img {
+    margin: 10px 20px 0 10px;
+    @include my-size(85px, 85px);
+    @include relative-zindex;
+}
+
+.my-services-box-title {
+    margin-top: 1.75rem;
+}
+
+.my-services-box-header {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    @include my-font-light-sec;
+}
+
+.my-services-box-text {
+    margin-top: 1rem;
+    line-height: 2;
+}
+

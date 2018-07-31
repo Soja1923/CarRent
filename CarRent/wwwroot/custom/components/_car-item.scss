@@ -1,0 +1,35 @@
+﻿.my-product-item{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: $my-font-family-secondary;
+}
+.my-product-item-img img{
+    width: auto;
+    height: 170px;
+    margin-bottom: .7rem;
+    filter: brightness(100%);
+    &:hover {
+        filter: brightness(80%);
+    }
+    @include my-basic-transition;
+    @include media-breakpoint-down(xs) {
+        height: auto;
+        width:100%;
+    }
+}
+.my-car-item-link {
+    color: $gray-900;
+}
+.my-car-name{
+    margin-bottom:0;
+    letter-spacing: .1rem;
+}
+.my-car-item-desc{
+    margin-bottom: .5rem;
+    font-weight:300;
+}
+.my-car-price{
+    font-size: 1rem;
+    font-weight:700;
+    letter-spacing: .1rem;
+}

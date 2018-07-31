@@ -1,0 +1,15 @@
+﻿.my-cars-list-page {
+    padding: 40px 0 35px;
+    .my-car-search{
+        margin-bottom: 50px;
+    }
+}
+.my-cars-list-intro{
+    width: 100%;
+    @include media-breakpoint-up(md){
+        width:50%;
+    }
+}
+.my-cars{
+    padding: 0 0 15px;
+}

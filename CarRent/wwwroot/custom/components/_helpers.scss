@@ -4,3 +4,11 @@
     height: 1px;
     background-color: darken($gray-200, 5%);
 }
+.my-alternate-bg {
+    background-color: $my-gray-100;
+}
+.my-img {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}

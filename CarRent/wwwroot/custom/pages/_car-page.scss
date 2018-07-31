@@ -1,0 +1,42 @@
+﻿.my-car-page{
+    padding: 80px 0 20px;
+}
+.my-car-page-data {
+    @include my-font-light-sec;
+    letter-spacing: .1rem;
+    margin-bottom: 20px;
+}
+.my-car-img{
+    margin-bottom: 2rem;
+    @include media-breakpoint-up(lg){
+        margin-bottom: 0;
+    }
+}
+.my-car-page-price-box {
+    width: 100%;
+    margin: 1rem 0 1.5rem;
+    @include media-breakpoint-up(md) {
+        width: 48%;
+    }
+}
+.my-car-info{
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.my-car-reservation {
+    font-size: .6875rem;
+    letter-spacing: .15rem;
+    font-weight: 300;
+}
+.my-car-page-hr{
+    margin: 3.25rem 0;
+}
+.my-car-page-desc {
+    margin-bottom: 70px;
+}
+.my-car-page-desc-text {
+    padding: 2.5rem 4rem 1.5rem;
+    border: 1px solid darken($gray-200, 5%);
+   
+}

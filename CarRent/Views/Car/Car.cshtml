@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewData["Title"] = "Car";
+}
+
+<div class="my-car-page">
+    <div class="container">
+        <div class="my-car-page-data">
+            <div class="row">
+                <div class="col-lg-6 pl-md-5 pl-lg-0 d-md-flex my-img">
+                    <img class="img-fluid my-car-img" src="~/img/tmp/car_1.png" alt="" />
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="text-uppercase my-car-name my-text-large">Nazwa auta</h4>
+                            <div class="d-flex align-items-center justify-content-between my-car-page-price-box">
+                                <span class="my-car-price my-text-large">68 zł/dzień</span>
+                                <div class="mr-0 my-text-large">
+                                    <i class="fa fa-plus text-success mr-1"> 68 </i>
+                                    <i class="fa fa-minus text-danger ml-1"> 7 </i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-hr"></div>
+                    <div class="row">
+                        <div class="col-md-8 my-car-info">
+                            <ul class="list-group text-uppercase font-weight-bold mb-4">
+                                <li class="list-group-item">silnik <span class="text-primary float-right">1229 cm<sup>3</sup></span></li>
+                                <li class="list-group-item">rodzaj paliwa <span class="text-primary float-right">benzyna</span></li>
+                                <li class="list-group-item">skrzynia biegów <span class="text-primary float-right">manual</span></li>
+                                <li class="list-group-item">rok <span class="text-primary float-right">2014</span></li>
+                                <li class="list-group-item">nadwozie <span class="text-primary float-right">hatchback</span></li>
+                                <li class="list-group-item">liczba miejsc <span class="text-primary float-right">5</span></li>
+                            </ul>
+                            <button class="btn btn-primary btn-lg text-white text-uppercase">zarezerwuj</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="my-hr my-car-page-hr"></div>
+        <div class="my-car-page-desc">
+            <div class="row">
+                <div class="col">
+                    <ul class="nav nav-tabs text-uppercase my-car-page-desc-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#car-page-desc">Opis samochodu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#car-rate">Opinie o samochodzie</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <!--description -->
+                        <div id="car-page-desc" class="tab-pane active my-car-page-desc-text">
+                            <h4 class="mb-3 my-text-large">Lorem ipsum dolor magi lewiatan</h4>
+                            <p>
+                                Chevrolet Aveo – samochód osobowy produkowany od 2002 roku przez koncern GM Daewoo, a później Chevrolet. Obecnie produkowana jest druga generacja modelu, oznaczona symbolem T300. Po ogłoszeniu upadłości Daewoo i zajęciu tej spółki przez Chevroleta, Aveo na wielu rynkach zastąpił Daewoo Lanosa. Z kolei m.in. w krajach azjatyckich bliźniaczym modelem Aveo jest Daewoo Kalos. Oba auta (w niektórych państwach Europy model ten w wersji hatchback funkcjonował też jako Chevrolet Kalos) bazowały na prototypie Kalos Dream z 2000 roku, zaprojektowanym przez studio Italdesign. Aveo sprawia kierowcy dużo frajdy z każdej podróży i posłusznie wchodzi w zakręty. To głównie zasługa odpowiedniej kalibracji dość miękkiego zawieszenia, które jest udanym kompromisem między wygodą oraz bezpieczeństwem. Stabilność w zakrętach to między innymi zasługa wzmocnionej, sztywnej konstrukcji nadwozia. Wnętrze można pochwalić za jakość materiałów i precyzję dopasowania poszczególnych elementów. W przedniej osi zastosowano stabilizatory. Z tyłu zamontowano belkę skrętną. Ciekawie zaprojektowano rozmieszone po obu stronach deski rozdzielczej, okrągłe dysze nawiewu. Zalety Aveo to przestrzeń dla kierowcy i pasażerów, stosunek jakość/cena. Warto też wspomnieć o przestronności – zarówno z przodu, jak i z tyłu oraz duża ilość praktycznych schowków. Porządek we wnętrzu pomoże utrzymać spory, podwójny schowek po stronie pasażera. Znajduje się tam również port USB. Całość uzupełniają rozmaite przegródki, kieszenie w drzwiach oraz trzy uchwyty na kubki. Zapraszamy do naszej wypożyczalni samochodów FCT24. Już dzisiaj możesz wypozyczyć to wspaniałe auto!
+                            </p>
+                        </div>
+                        <!--comments-->
+                        <div id="car-rate" class="tab-pane my-car-page-desc-text">
+                            <div id="car-rate" class="my-comments">
+                                <h4 class="my-comments-header">Komentarze (2)</h4>
+                              <div class="media my-comment">
+                                    <div class="d-none d-md-flex align-items-center justify-content-center text-center bg-primary
+                                         my-comment-avatar">
+                                        <img src="~/img/UI/user-avatar.png" alt="avatar" />
+                                    </div>
+                                    <div class="media-body my-text-small">
+                                        <div class="my-comment-meta">
+                                            <span class="my-comment-username">Jan Kowalski</span>
+                                            <i class="fa fa-plus text-success mr-1"> </i><br/>
+                                            <span class="my-comment-date">22.07.2018 | 20:17</span>
+                                        </div>
+                                        <div class="my-comment-content">
+                                            <p>
+                                                Bardzo dobre auto, podróż nim mineła mi bez problemowo.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="media my-comment">
+                                    <div class="d-none d-md-flex align-items-center justify-content-center text-center bg-primary
+                                         my-comment-avatar">
+                                        <img src="~/img/UI/user-avatar.png" alt="avatar" />
+                                    </div>
+                                    <div class="media-body my-text-small">
+                                        <div class="my-comment-meta">
+                                            <span class="my-comment-username">Jan Kowalski</span>
+                                            <i class="fa fa-minus text-danger ml-1"> </i><br />
+                                            <span class="my-comment-date">22.07.2018 | 20:17</span>
+                                        </div>
+                                        <div class="my-comment-content">
+                                            <p>
+                                                Lorem ipsum dolor sit amet cursus quis, tincidunt nonummy, leo sodales at, posuere cubilia Curae, Quisque vestibulum. Aenean quis ultricies porta tincidunt. Pellentesque ut turpis. Cras faucibus in, dapibus vel, magna. Suspendisse potenti. In purus lacinia aliquet congue eget, vestibulum faucibus eros mauris, consectetuer adipiscing laoreet, enim ut nonummy porttitor laoreet vel, accumsan adipiscing, risus at sem. Sed faucibus, quam. Phasellus sit amet mauris. Pellentesque habitant morbi tristique purus. Sed sit amet tempus nunc. Nulla venenatis placerat, nulla eu odio. Donec est. Sed sagittis luctus, ante a velit ac turpis egestas. Mauris arcu. Sed nibh nisl, eu dui vitae tellus in fermentum libero purus non odio. Nam scelerisque fermentum nisl eu pulvinar ut, condimentum nunc. Suspendisse sed lacus. Nullam accumsan. Proin dui tincidunt leo vel neque in nulla non elit tincidunt nec, mattis egestas, nunc commodo nec, dictum accumsan. In nec risus. Phasellus orci a wisi. Nulla pellentesque accumsan. Proin sodales. Aenean bibendum. Morbi massa ut mauris magna, scelerisque a, diam. Nam eget augue. Donec mauris sed est iaculis et, tristique senectus et magnis dis parturient montes, nascetur ridiculus mus.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
