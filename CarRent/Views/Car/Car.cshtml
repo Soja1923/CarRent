@@ -1,4 +1,4 @@
-﻿
+﻿@model Car
 @{
     ViewData["Title"] = "Car";
 }
@@ -13,7 +13,7 @@
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col">
-                            <h4 class="text-uppercase my-car-name my-text-large">Nazwa auta</h4>
+                            <h4 class="text-uppercase my-car-name my-text-large">Nazwa</h4>
                             <div class="d-flex align-items-center justify-content-between my-car-page-price-box">
                                 <span class="my-car-price my-text-large">68 zł/dzień</span>
                                 <div class="mr-0 my-text-large">
@@ -27,11 +27,11 @@
                     <div class="row">
                         <div class="col-md-8 my-car-info">
                             <ul class="list-group text-uppercase font-weight-bold mb-4">
-                                <li class="list-group-item">silnik <span class="text-primary float-right">1229 cm<sup>3</sup></span></li>
+                                <li class="list-group-item">silnik <span class="text-primary float-right">silnik cm<sup>3</sup></span></li>
                                 <li class="list-group-item">rodzaj paliwa <span class="text-primary float-right">benzyna</span></li>
-                                <li class="list-group-item">skrzynia biegów <span class="text-primary float-right">manual</span></li>
-                                <li class="list-group-item">rok <span class="text-primary float-right">2014</span></li>
-                                <li class="list-group-item">nadwozie <span class="text-primary float-right">hatchback</span></li>
+                                <li class="list-group-item">skrzynia biegów <span class="text-primary float-right"></span></li>
+                                <li class="list-group-item">rok <span class="text-primary float-right">2019</span></li>
+                                <li class="list-group-item">nadwozie <span class="text-primary float-right">sSedan</span></li>
                                 <li class="list-group-item">liczba miejsc <span class="text-primary float-right">5</span></li>
                             </ul>
                             <button class="btn btn-primary btn-lg text-white text-uppercase">zarezerwuj</button>
@@ -57,7 +57,7 @@
                         <div id="car-page-desc" class="tab-pane active my-car-page-desc-text">
                             <h4 class="mb-3 my-text-large">Lorem ipsum dolor magi lewiatan</h4>
                             <p>
-                                Chevrolet Aveo – samochód osobowy produkowany od 2002 roku przez koncern GM Daewoo, a później Chevrolet. Obecnie produkowana jest druga generacja modelu, oznaczona symbolem T300. Po ogłoszeniu upadłości Daewoo i zajęciu tej spółki przez Chevroleta, Aveo na wielu rynkach zastąpił Daewoo Lanosa. Z kolei m.in. w krajach azjatyckich bliźniaczym modelem Aveo jest Daewoo Kalos. Oba auta (w niektórych państwach Europy model ten w wersji hatchback funkcjonował też jako Chevrolet Kalos) bazowały na prototypie Kalos Dream z 2000 roku, zaprojektowanym przez studio Italdesign. Aveo sprawia kierowcy dużo frajdy z każdej podróży i posłusznie wchodzi w zakręty. To głównie zasługa odpowiedniej kalibracji dość miękkiego zawieszenia, które jest udanym kompromisem między wygodą oraz bezpieczeństwem. Stabilność w zakrętach to między innymi zasługa wzmocnionej, sztywnej konstrukcji nadwozia. Wnętrze można pochwalić za jakość materiałów i precyzję dopasowania poszczególnych elementów. W przedniej osi zastosowano stabilizatory. Z tyłu zamontowano belkę skrętną. Ciekawie zaprojektowano rozmieszone po obu stronach deski rozdzielczej, okrągłe dysze nawiewu. Zalety Aveo to przestrzeń dla kierowcy i pasażerów, stosunek jakość/cena. Warto też wspomnieć o przestronności – zarówno z przodu, jak i z tyłu oraz duża ilość praktycznych schowków. Porządek we wnętrzu pomoże utrzymać spory, podwójny schowek po stronie pasażera. Znajduje się tam również port USB. Całość uzupełniają rozmaite przegródki, kieszenie w drzwiach oraz trzy uchwyty na kubki. Zapraszamy do naszej wypożyczalni samochodów FCT24. Już dzisiaj możesz wypozyczyć to wspaniałe auto!
+                                @Model.Description
                             </p>
                         </div>
                         <!--comments-->

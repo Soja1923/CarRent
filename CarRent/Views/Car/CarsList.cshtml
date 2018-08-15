@@ -1,4 +1,6 @@
-﻿
+﻿@model CarListView
+@using System;
+
 <div class="my-cars-list-page">
     <div class="container">
         <div class="text-center mx-auto my-cars-list-intro">
@@ -29,19 +31,23 @@
     <!--Cars list-->
     <div class="container">
         <div class="row my-cars">
+            @foreach (var c in Model.Cars)
+            {
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" asp-controller="Car" asp-action="Car">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_1.png" alt="zdjecie samochodu" />
+                    <a class="d-flex justify-content-center my-product-item-img" asp-controller="Car" asp-action="Car" asp-route-carId="@c.Car_ID">
+                        <img class="align-self-center img-thumbnail rounded" src="data:image;base64,@Convert.ToBase64String(c.Img)" alt="zdjecie samochodu" />
                     </a>
                     <a class="my-car-item-link" asp-controller="Car" asp-action="Car">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
+                        <h4 class="text-uppercase my-car-name">@c.Mark @c.Model</h4>
                     </a>
                     <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
+                        Skrzynia biegów: <span class="text-primary">@c.GearboxType</span> 
+                        Paliwo: <span class="text-primary">@c.Fuel</span>
+                        Rok: <span class="text-primary">@c.Year</span>
                     </p>
                     <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
+                        <span class="my-car-price">@c.Grade.PricePerDay zł/dzień</span>
                         <span>
                             <i class="fa fa-plus text-success mr-1"> 68 </i>
                             <i class="fa fa-minus text-danger ml-1"> 7 </i>
@@ -49,227 +55,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" href="car.html">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_BB.png" alt="zdjecie samochodu" />
-                    </a>
-                    <a class="my-car-item-link" href="car.html">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
-                    </a>
-                    <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
-                    </p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
-                        <span>
-                            <i class="fa fa-plus text-success mr-1"> 68 </i>
-                            <i class="fa fa-minus text-danger ml-1"> 7 </i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" href="car.html">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_CC.jpg" alt="zdjecie samochodu" />
-                    </a>
-                    <a class="my-car-item-link" href="car.html">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
-                    </a>
-                    <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
-                    </p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
-                        <span>
-                            <i class="fa fa-plus text-success mr-1"> 68 </i>
-                            <i class="fa fa-minus text-danger ml-1"> 7 </i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" href="car.html">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_03.jpg" alt="zdjecie samochodu" />
-                    </a>
-                    <a class="my-car-item-link" href="car.html">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
-                    </a>
-                    <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
-                    </p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
-                        <span>
-                            <i class="fa fa-plus text-success mr-1"> 68 </i>
-                            <i class="fa fa-minus text-danger ml-1"> 7 </i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <!---->
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" href="car.html">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_04.jpg" alt="zdjecie samochodu" />
-                    </a>
-                    <a class="my-car-item-link" href="car.html">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
-                    </a>
-                    <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
-                    </p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
-                        <span>
-                            <i class="fa fa-plus text-success mr-1"> 68 </i>
-                            <i class="fa fa-minus text-danger ml-1"> 7 </i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" href="car.html">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_05.jpg" alt="zdjecie samochodu" />
-                    </a>
-                    <a class="my-car-item-link" href="car.html">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
-                    </a>
-                    <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
-                    </p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
-                        <span>
-                            <i class="fa fa-plus text-success mr-1"> 68 </i>
-                            <i class="fa fa-minus text-danger ml-1"> 7 </i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" href="car.html">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_06.jpg" alt="zdjecie samochodu" />
-                    </a>
-                    <a class="my-car-item-link" href="car.html">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
-                    </a>
-                    <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
-                    </p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
-                        <span>
-                            <i class="fa fa-plus text-success mr-1"> 68 </i>
-                            <i class="fa fa-minus text-danger ml-1"> 7 </i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" href="car.html">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_07.jpg" alt="zdjecie samochodu" />
-                    </a>
-                    <a class="my-car-item-link" href="car.html">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
-                    </a>
-                    <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
-                    </p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
-                        <span>
-                            <i class="fa fa-plus text-success mr-1"> 68 </i>
-                            <i class="fa fa-minus text-danger ml-1"> 7 </i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <!---->
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" href="car.html">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_08.jpg" alt="zdjecie samochodu" />
-                    </a>
-                    <a class="my-car-item-link" href="car.html">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
-                    </a>
-                    <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
-                    </p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
-                        <span>
-                            <i class="fa fa-plus text-success mr-1"> 68 </i>
-                            <i class="fa fa-minus text-danger ml-1"> 7 </i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" href="car.html">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_09.jpg" alt="zdjecie samochodu" />
-                    </a>
-                    <a class="my-car-item-link" href="car.html">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
-                    </a>
-                    <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
-                    </p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
-                        <span>
-                            <i class="fa fa-plus text-success mr-1"> 68 </i>
-                            <i class="fa fa-minus text-danger ml-1"> 7 </i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" href="car.html">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_10.jpg" alt="zdjecie samochodu" />
-                    </a>
-                    <a class="my-car-item-link" href="car.html">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
-                    </a>
-                    <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
-                    </p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
-                        <span>
-                            <i class="fa fa-plus text-success mr-1"> 68 </i>
-                            <i class="fa fa-minus text-danger ml-1"> 7 </i>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" href="car.html">
-                        <img class="align-self-center img-thumbnail rounded" src="~/img/tmp/car_11.jpg" alt="zdjecie samochodu" />
-                    </a>
-                    <a class="my-car-item-link" href="car.html">
-                        <h4 class="text-uppercase my-car-name">Nazwa auta</h4>
-                    </a>
-                    <p class="my-text-small my-car-item-desc">
-                        Lorem ipsum dolor lorem juh fuanomt agmuoc
-                    </p>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span class="my-car-price">68 zł/dzień</span>
-                        <span>
-                            <i class="fa fa-plus text-success mr-1"> 68 </i>
-                            <i class="fa fa-minus text-danger ml-1"> 7 </i>
-                        </span>
-                    </div>
-                </div>
+            }
+            <div page-model="@Model.PagingInfo" page-action="CarsList" page-classes-enabled="true"
+                 page-class="btn" page-class-normal="btn-primary"
+                 page-class-selected="btn-secondary" class="btn-group pull-right m-1">
             </div>
         </div>
     </div>

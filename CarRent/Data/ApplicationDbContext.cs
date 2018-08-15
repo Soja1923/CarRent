@@ -14,13 +14,20 @@ namespace CarRent.Data
             : base(options)
         {
         }
+        public DbSet<ApplicationUser> GetUsers { get; set; }
+        public DbSet<Address> GetAddresses { get; set; }
+        public DbSet<Car> GetCars { get; set; }
+        public DbSet<CarDetails> GetCarDetails { get; set; }
+        public DbSet<Person> GetPeople { get; set; } 
+        public DbSet<Grade> GetGrades { get; set; }
+        public DbSet<Location> GetLocations { get; set; }
+        public DbSet<Order> GetOrders { get; set; }
+        public DbSet<UserRating> GetUserRatings { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            // Customize the ASP.NET Identity model and override the defaults if needed.
-            // For example, you can rename the ASP.NET Identity table names and more.
-            // Add your customizations after calling base.OnModelCreating(builder);
+
         }
     }
 }

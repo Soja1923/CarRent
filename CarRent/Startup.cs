@@ -9,8 +9,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using CarRent.Data;
+using CarRent.Data.Repo;
 using CarRent.Models;
 using CarRent.Services;
+using CarRent.Models.SeedData;
 
 namespace CarRent
 {
@@ -23,7 +25,6 @@ namespace CarRent
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -33,10 +34,17 @@ namespace CarRent
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
-            // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+
+            services.AddScoped<IAddressRepo, AddressRepo>();
+            services.AddScoped<ICarDetalistRepo, CarDetalistRepo>();
+            services.AddScoped<ICarRepo, CarRepo>();
+            services.AddScoped<IGradeRepo, GradeRepo>();
+            services.AddScoped<IOrderRepo, OrderRepo>();
+            services.AddScoped<IPersonRepo, PersonRepo>();
+            services.AddScoped<IUserRatingRepo, UserRatingRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,17 +60,16 @@ namespace CarRent
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
             app.UseStaticFiles();
-
             app.UseAuthentication();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+            //Tworzenie bazy danych i dodawanie przykładowych danych do bazy danych
+           // SeedData.Ensure(app);
         }
     }
 }
