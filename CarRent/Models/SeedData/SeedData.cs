@@ -4,7 +4,6 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using CarRent.Data;
 using Microsoft.Extensions.DependencyInjection;
-using CarRent.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using System.IO;
 
@@ -28,15 +27,9 @@ namespace CarRent.Models.SeedData
                 new Grade { GradeType = GradeType.BUS, PricePerDay = 99.00 }
             };
 
-            if (!dbContext.GetGrades.Any())
-            {
-                dbContext.GetGrades.AddRange(grades);
-                dbContext.SaveChanges();
-            }
-
             var addresses = new List<Address>
             {
-                new Address { City = "Warszawa", Street = "Daleka", Number = "23B", PostalCode = "44-555" },
+                new Address { City = "Warszawa", Street = "Daleka", Number = "23B", PostalCode = "44-555"},
                 new Address { City = "Kraków", Street = "Polna", Number = "190", PostalCode = "33-444" },
                 new Address { City = "Warszawa", Street = "Szpitalna", Number = "12", PostalCode = "44-555" },
                 new Address { City = "Katowice", Street = "Leśna", Number = "120", PostalCode = "11-020" },
@@ -80,12 +73,7 @@ namespace CarRent.Models.SeedData
                 new Address { City = "Lublin", Street = "Jaskółcza", Number = "6", PostalCode = "91-187" }
             };
             
-            if (!dbContext.GetAddresses.Any())
-            { 
-                dbContext.GetAddresses.AddRange(addresses);
-                dbContext.SaveChanges();
-            }
-
+        
             var locations = new List<Location>()
             {
                 new Location { Address = addresses[0], E_mail="carrentWarszawa@gmail.com", Phone_Number="111-222-333",  },
@@ -96,11 +84,6 @@ namespace CarRent.Models.SeedData
                 new Location { Address = addresses[5], E_mail = "carrentLublin@gmial.com", Phone_Number = "777-888-999" }
             };
                
-            if (!dbContext.GetLocations.Any())
-            {
-                dbContext.GetLocations.AddRange(locations);
-                dbContext.SaveChanges();
-            }
 
             var users = new List<ApplicationUser>
             {
@@ -129,15 +112,7 @@ namespace CarRent.Models.SeedData
                 new ApplicationUser { Email = "klient10@gmail.com", PhoneNumber = "112-122-112" },
                 new ApplicationUser { Email = "klient11@gmail.com", PhoneNumber = "113-123-113" },
                 new ApplicationUser { Email = "klient12@gmail.com", PhoneNumber = "114-124-114" },
-
-
-
             };
-            if (!dbContext.GetUsers.Any())
-            {
-                dbContext.AddRange(users);
-                dbContext.SaveChanges();
-            }
 
             var employees = new List<Employee>
             {
@@ -169,13 +144,8 @@ namespace CarRent.Models.SeedData
                 new Customer{Name="Mateusz", LastName="Nowak", PESEL="28062036775", Address=addresses[28], ApplicationUser=users[22]},
                 new Customer{Name="Anna", LastName="Domagała", PESEL="62061687280", Address=addresses[29], ApplicationUser=users[23]}
             };
-             if(!dbContext.GetPeople.Any())
-            {
-                dbContext.GetPeople.AddRange(employees);
-                dbContext.GetPeople.AddRange(customers);
-                dbContext.SaveChanges();
-            }
-            string directoryName = Directory.GetCurrentDirectory(); 
+       
+            string directoryName = Directory.GetCurrentDirectory();
             var cars = new List<Car>()
             {
 
@@ -192,7 +162,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Hatchback,
                 Grade = grades[0],
                 Year = 2014,
-                Img = ImgConverter.ImgToByte(directoryName + "\\wwwroot\\img\\tmp\\car_2.jpg")
+                Img = "car_2.jpg"
             },
             new Car
             {
@@ -204,9 +174,9 @@ namespace CarRent.Models.SeedData
                 NumberOfSeats = 4,
                 EngineCapacity = 1329.00,
                 Body = BodyType.Hatchback,
-                Grade = grades[2],
+                Grade = grades[0],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_3.png")
+                Img = "car_3.png"
             },
             new Car
             {
@@ -221,7 +191,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Hatchback,
                 Grade = grades[1],
                 Year = 2014,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_4.jpg")
+               Img = "car_4.jpg"
             },
             new Car
             {
@@ -231,25 +201,25 @@ namespace CarRent.Models.SeedData
                 Description = "Toyota Aygo – samochód osobowy klasy aut miejskich produkowany od 2005 roku. Samochód został opracowany we współpracy z koncernem PSA w wyniku której powstały trzy bliźniacze modele: Toyota Aygo, Citroen C1 oraz Peugeot 107. Od 2014 roku produkowana jest druga generacja modelu.",
                 GearboxType = Gearbox.Manual,
                 NumberOfSeats = 5,
-                EngineCapacity = 98.00,
+                EngineCapacity = 998.00,
                 Body = BodyType.Hatchback,
                 Grade = grades[0],
                 Year = 2014,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_5.jpg")
+                Img = "car_5.jpg"
             },
             new Car
             {
                 Mark = "Toyota",
                 Model = "Auris",
-                Fuel = FuelType.Benzyna,
+                Fuel = FuelType.Gaz,
                 Description = "Toyota Auris to samochód osobowy produkowany przez japoński koncern motoryzacyjny Toyota Motor Corporation od października 2006 roku.Auris na większości rynków zastąpił Toyotę Corollę w wersji hatchback.Na pozostałych rynkach – Corollę RunX, a tylko w Australii oferowany jest pod nazwą Corolla.",
                 GearboxType = Gearbox.Manual,
                 NumberOfSeats = 5,
-                EngineCapacity = 998.00,
+                EngineCapacity = 1329.00,
                 Body = BodyType.Hatchback,
                 Grade = grades[0],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_6.png")
+                Img = "car_6.png"
             },
             new Car
             {
@@ -263,7 +233,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Kombi,
                 Grade = grades[2],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_7.jpg")
+               Img = "car_7.jpg"
             },
             new Car
             {
@@ -277,21 +247,21 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Kombi,
                 Grade = grades[5],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_1.png")
+                Img = "car_1.png"
             },
             new Car
             {
                 Mark = "Ford",
                 Model = "Transit",
-                Fuel = FuelType.Diesel,
+                Fuel = FuelType.Benzyna,
                 Description = "Ford Transit − samochód dostawczy marki Ford produkowany od 1965 roku występujący w różnych typach nadwozi od dostawczego aż po 17-osobowego busa. Auto zastąpiło Forda Thames. Dwa razy zdobył nagrodę Van of the Year - w 2001 oraz 2007 roku. Obecnie produkowana jest VIII generacja modelu.",
-                GearboxType = Gearbox.Manual,
+                GearboxType = Gearbox.Automat,
                 NumberOfSeats = 3,
                 EngineCapacity = 1995.00,
                 Body = BodyType.VAN,
                 Grade = grades[6],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_8.png")
+                Img = "car_8.png"
             },
             new Car
             {
@@ -305,7 +275,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.PickUp,
                 Grade = grades[6],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_9.jpg")
+                Img = "car_9.jpg"
             },
             new Car
             {
@@ -319,7 +289,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.SUV,
                 Grade = grades[5],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_10.jpg")
+                Img = "car_10.jpg"
             },
             new Car
             {
@@ -333,7 +303,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Sedan,
                 Grade = grades[3],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_11.png")
+                Img = "car_11.png"
             },
             new Car
             {
@@ -347,7 +317,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Hatchback,
                 Grade = grades[3],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_12.png")
+                Img = "car_12.png"
             },
             new Car
             {
@@ -361,7 +331,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.VAN,
                 Grade = grades[6],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_13.png")
+                Img = "car_13.png"
             },
             new Car
             {
@@ -375,7 +345,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Hatchback,
                 Grade = grades[4],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_14.png")
+                Img = "car_14.png"
             },
             new Car
             {
@@ -389,7 +359,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Hatchback,
                 Grade = grades[4],
                 Year = 2018,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_15.jpg")
+                Img = "car_15.jpg"
             },
             new Car
             {
@@ -403,7 +373,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Sedan,
                 Grade = grades[4],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_16.jpg")
+                Img = "car_16.jpg"
             },
             new Car
             {
@@ -417,7 +387,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Sedan,
                 Grade = grades[4],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_17.jpg")
+                Img = "car_17.jpg"
             },
             new Car
             {
@@ -431,7 +401,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Sedan,
                 Grade = grades[4],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_18.png")
+                Img = "car_18.png"
             },
             new Car
             {
@@ -445,7 +415,7 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Sedan,
                 Grade = grades[4],
                 Year = 2017,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_19.png")
+                Img = "car_19.png"
             },
             new Car
             {
@@ -459,14 +429,9 @@ namespace CarRent.Models.SeedData
                 Body = BodyType.Sedan,
                 Grade = grades[5],
                 Year = 2018,
-                Img = ImgConverter.ImgToByte(directoryName+"\\wwwroot\\img\\tmp\\car_20.png")
+                Img = "car_20.png"
             }
             };
-            if (!dbContext.GetCars.Any())
-            {
-                dbContext.GetCars.AddRange(cars);
-                dbContext.SaveChanges();
-            }
 
             var carsDetal = new List<CarDetails>
             {
@@ -560,8 +525,50 @@ namespace CarRent.Models.SeedData
                 new CarDetails{Location=locations[5], Car=cars[10], State=StateType.Sprawny, RegistrationNumber="LU127HJ"},
                 new CarDetails{Location=locations[5], Car=cars[15], State=StateType.Sprawny, RegistrationNumber="LU137HJ"},
                 new CarDetails{Location=locations[5], Car=cars[18], State=StateType.Sprawny, RegistrationNumber="LU147HJ"},
-                new CarDetails{Location=locations[5], Car=cars[19], State=StateType.Sprawny, RegistrationNumber="LU157HJ"},
+                new CarDetails{Location=locations[5], Car=cars[19], State=StateType.Uszkodzony, RegistrationNumber="LU157HJ"},
             };
+
+
+            if (!dbContext.GetGrades.Any())
+            {
+                dbContext.GetGrades.AddRange(grades);
+                dbContext.SaveChanges();
+            }
+
+            if (!dbContext.GetAddresses.Any())
+            {
+                dbContext.GetAddresses.AddRange(addresses);
+                dbContext.SaveChanges();
+            }
+
+            if (!dbContext.GetLocations.Any())
+            {
+                dbContext.GetLocations.AddRange(locations);
+                dbContext.SaveChanges();
+            }
+
+            if (!dbContext.GetUsers.Any())
+            {
+                dbContext.AddRange(users);
+                dbContext.SaveChanges();
+            }
+
+            if (!dbContext.GetPeople.Any())
+            {
+                dbContext.GetPeople.AddRange(employees);
+                dbContext.GetPeople.AddRange(customers);
+                dbContext.SaveChanges();
+            }
+
+            if (!dbContext.GetCars.Any())
+            {
+                for(int i=0; i<cars.Count; i++)
+                {
+                    dbContext.GetCars.Add(cars[i]);
+                    dbContext.SaveChanges();
+                }
+            }
+
             if (!dbContext.GetCarDetails.Any())
             {
                 dbContext.GetCarDetails.AddRange(carsDetal);

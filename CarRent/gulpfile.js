@@ -1,7 +1,7 @@
 ﻿var gulp = require('gulp');
 var sass = require('gulp-sass');
 
-var cssDest = 'wwwroot/css/mystyle';
+var cssDest = 'wwwroot/css/css_style';
 var cssInputFile = 'wwwroot/custom/style.scss';
 var watchedFiles = 'wwwroot/custom/**/*.scss';
 

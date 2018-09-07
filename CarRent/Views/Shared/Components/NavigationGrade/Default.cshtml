@@ -1,0 +1,19 @@
+﻿@model IEnumerable<string>
+
+<a class="btn mb-2 @(ViewBag.SelectedGrade==null ? "btn-secondary" : "btn-primary")"
+   asp-action="CarsList"
+   asp-controller="Car"
+   asp-route-category="">
+    Wszystkie
+</a>
+@foreach(string grade in Model)
+{
+<a class="btn mb-2
+   @(grade==ViewBag.SelectedGrade ? "btn-secondary" : "btn-primary")"
+   asp-action="CarsList"
+   asp-controller="Car"
+   asp-route-category="@grade"
+   asp-route-carPage="1">
+    @grade
+</a>
+}

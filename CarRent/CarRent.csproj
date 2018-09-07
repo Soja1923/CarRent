@@ -26,7 +26,27 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Order\" />
     <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\uploads\1\" />
+    <Folder Include="wwwroot\uploads\2\" />
+    <Folder Include="wwwroot\uploads\3\" />
+    <Folder Include="wwwroot\uploads\4\" />
+    <Folder Include="wwwroot\uploads\5\" />
+    <Folder Include="wwwroot\uploads\6\" />
+    <Folder Include="wwwroot\uploads\7\" />
+    <Folder Include="wwwroot\uploads\8\" />
+    <Folder Include="wwwroot\uploads\9\" />
+    <Folder Include="wwwroot\uploads\10\" />
+    <Folder Include="wwwroot\uploads\11\" />
+    <Folder Include="wwwroot\uploads\12\" />
+    <Folder Include="wwwroot\uploads\13\" />
+    <Folder Include="wwwroot\uploads\14\" />
+    <Folder Include="wwwroot\uploads\15\" />
+    <Folder Include="wwwroot\uploads\17\" />
+    <Folder Include="wwwroot\uploads\18\" />
+    <Folder Include="wwwroot\uploads\19\" />
+    <Folder Include="wwwroot\uploads\20\" />
   </ItemGroup>
 
 </Project>

@@ -84,7 +84,7 @@ namespace CarRent.Migrations
                 {
                     Location_ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Address_ID = table.Column<int>(nullable: true),
+                    Address_ID = table.Column<int>(nullable: false),
                     E_mail = table.Column<string>(nullable: false),
                     Phone_Number = table.Column<string>(nullable: false)
                 },
@@ -96,7 +96,7 @@ namespace CarRent.Migrations
                         column: x => x.Address_ID,
                         principalTable: "Address",
                         principalColumn: "Address_ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -217,7 +217,7 @@ namespace CarRent.Migrations
                     Fuel = table.Column<int>(nullable: false),
                     GearboxType = table.Column<int>(nullable: false),
                     GradeID = table.Column<int>(nullable: false),
-                    Img = table.Column<byte[]>(nullable: false),
+                    Img = table.Column<string>(nullable: false),
                     Mark = table.Column<string>(maxLength: 30, nullable: false),
                     Model = table.Column<string>(maxLength: 30, nullable: false),
                     NumberOfSeats = table.Column<int>(nullable: false),
@@ -423,8 +423,7 @@ namespace CarRent.Migrations
                 name: "IX_Location_Address_ID",
                 table: "Location",
                 column: "Address_ID",
-                unique: true,
-                filter: "[Address_ID] IS NOT NULL");
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Order_CarID",

@@ -28,5 +28,11 @@ namespace CarRent.Models
 
         public virtual Location Location { get; set; }
         public virtual Person Person { get; set; }
+
+
+        public override string ToString()
+        {
+            return City + " " + PostalCode + " " +Street + " " +Number;
+        }
     }
 }

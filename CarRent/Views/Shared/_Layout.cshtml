@@ -10,7 +10,7 @@
     <script src="~/lib/jquery/jquery-3.3.1.min.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
     <environment include="Development">
-        <link rel="stylesheet" href="~/css/mystyle/style.css" />
+        <link rel="stylesheet" href="~/css/css_style/style.css" />
     </environment>
 </head>
 <body>
@@ -28,7 +28,10 @@
                     <a class="nav-link text-white my-header-item-link" asp-area="" asp-controller="Car" asp-action="CarsList">Oferta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white my-header-item-link" asp-area="" asp-controller="Home" asp-action="Contact">Kontakt</a>
+                    <a class="nav-link text-white my-header-item-link" asp-area="" asp-controller="Location" asp-action="LocationList">Kontakt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white my-header-item-link" asp-area="" asp-controller="Admin" asp-action="Index">Panel sterowania</a>
                 </li>
                 <li>
                     @await Html.PartialAsync("_LoginPartial")

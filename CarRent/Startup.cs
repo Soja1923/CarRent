@@ -39,12 +39,15 @@ namespace CarRent
             services.AddMvc();
 
             services.AddScoped<IAddressRepo, AddressRepo>();
+            services.AddScoped<ILocationRepo, LocationRepo>();
             services.AddScoped<ICarDetalistRepo, CarDetalistRepo>();
             services.AddScoped<ICarRepo, CarRepo>();
             services.AddScoped<IGradeRepo, GradeRepo>();
             services.AddScoped<IOrderRepo, OrderRepo>();
             services.AddScoped<IPersonRepo, PersonRepo>();
             services.AddScoped<IUserRatingRepo, UserRatingRepo>();
+            services.AddScoped<IEmployeRepo, EmployeRepo>();
+            services.AddScoped<ICustomerRepo, CustomerRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,11 +68,46 @@ namespace CarRent
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                    name: null,
+                    template: "Oferta/{category}/Strona{carPage:int}",
+                    defaults: new { controller="Car", action= "CarsList" }
+                );
+                routes.MapRoute(
+                      name: null,
+                      template: "Oferta/Lokalizajca{locationId}",
+                      defaults: new { controller = "Car", action = "CarsList" }
+                      );
+                routes.MapRoute(
+                    name: null,
+                    template: "Strona{carPage:int}",
+                    defaults: new { controller = "Car", action = "CarsList", carPage = 1 }
+                    );
+                routes.MapRoute(
+                    name:null,
+                    template: "Oferta/{category}",
+                    defaults: new {controller="Car", action= "CarsList", carPage=1}
+                    );
+                routes.MapRoute(
+                   name: null,
+                   template: "Auto/{carId:int}",
+                   defaults: new { controller = "Car", action = "Car"}
+                   );
+                routes.MapRoute(
+                    name: null,
+                    template:"O_nas/",
+                    defaults: new { controller = "Home", action = "About" }
+                    );
+                routes.MapRoute(
+                    name: null,
+                    template: "Kontakt/",
+                    defaults: new { controller = "Location", action = "LocationList" }
+                    );
+                routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}");
             });
             //Tworzenie bazy danych i dodawanie przykładowych danych do bazy danych
-           // SeedData.Ensure(app);
+           SeedData.Ensure(app);
         }
     }
 }

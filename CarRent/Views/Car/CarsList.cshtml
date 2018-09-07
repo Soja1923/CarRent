@@ -1,30 +1,27 @@
 ﻿@model CarListView
-@using System;
+
 
 <div class="my-cars-list-page">
     <div class="container">
         <div class="text-center mx-auto my-cars-list-intro">
-            <h2 class="text-uppercase my-page-intro-header">Lista dostępnych 
-            <span class="text-primary">samochodów</span></h2>
+            <h2 class="text-uppercase my-page-intro-header">
+                Lista dostępnych
+                <span class="text-primary">samochodów</span>
+            </h2>
             <div class="my-hr my-page-intro-rule"></div>
         </div>
     </div>
-    <!--Search-->
+
     <div class="my-car-search my-alternate-bg">
         <div class="container">
-            <div class="input-group my-product-search-inner">
-                <input class="form-control text-uppercase border-primary 
-                       my-car-search-control my-car-search-input" 
-                       type="search" placeholder="Wpisz szukaną frazę" />
-                <div class="input-group-btn">
-                    <button class="btn btn-primary bg-white border-primary text-uppercase dropdown-toggle
-                            my-car-search-control my-car-search-categories">Kategorie</button>
+            <div class="row input-group">
+                <div class="col-12">
+                    <h4>Wybierz kategorie cenową</h4>
                 </div>
-                <span class="input-group-btn">
-                    <button class="btn btn-primary my-car-search-btn">
-                        <i class="fa fa-search"></i>
-                    </button> 
-                </span>
+                <div class="col-12">
+                    @await Component.InvokeAsync("NavigationGrade")
+
+                </div>
             </div>
         </div>
     </div>
@@ -34,15 +31,15 @@
             @foreach (var c in Model.Cars)
             {
             <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="my-product-item">
-                    <a class="d-flex justify-content-center my-product-item-img" asp-controller="Car" asp-action="Car" asp-route-carId="@c.Car_ID">
-                        <img class="align-self-center img-thumbnail rounded" src="data:image;base64,@Convert.ToBase64String(c.Img)" alt="zdjecie samochodu" />
+                <div class="my-product-item my-product-item-img">
+                    <a asp-controller="Car" asp-action="Car" asp-route-carId="@c.Car_ID">
+                        <img class="img-fluid my-car-img" src="~/uploads/@c.Car_ID/@c.Img" />
                     </a>
-                    <a class="my-car-item-link" asp-controller="Car" asp-action="Car">
+                    <a class="my-car-item-link" asp-controller="Car" asp-action="Car" asp-route-carId="@c.Car_ID">
                         <h4 class="text-uppercase my-car-name">@c.Mark @c.Model</h4>
                     </a>
                     <p class="my-text-small my-car-item-desc">
-                        Skrzynia biegów: <span class="text-primary">@c.GearboxType</span> 
+                        Skrzynia biegów: <span class="text-primary">@c.GearboxType</span>
                         Paliwo: <span class="text-primary">@c.Fuel</span>
                         Rok: <span class="text-primary">@c.Year</span>
                     </p>
@@ -56,9 +53,11 @@
                 </div>
             </div>
             }
+        </div>
+        <div class="row">
             <div page-model="@Model.PagingInfo" page-action="CarsList" page-classes-enabled="true"
                  page-class="btn" page-class-normal="btn-primary"
-                 page-class-selected="btn-secondary" class="btn-group pull-right m-1">
+                 page-class-selected="btn-secondary" page-url-category="@Model.CurrentCategory" class="btn-group pull-right m-1">
             </div>
         </div>
     </div>

@@ -12,9 +12,9 @@ namespace CarRent.Models
     {
         [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Order_ID { get; set; }
-        [Required(ErrorMessage ="Proszę podać datę wyporzyczenia auta.")]
+        [Required(ErrorMessage = "Proszę podać datę wyporzyczenia auta.")]
         public DateTime DateStart { get; set; }
-        [Required(ErrorMessage ="Proszę podać datę zwrotu auta.")]
+        [Required(ErrorMessage = "Proszę podać datę zwrotu auta.")]
         public DateTime DateEnd { get; set; }
         public State State { get; set; }
 

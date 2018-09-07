@@ -1,0 +1,45 @@
+﻿@model Customer
+@{
+    ViewData["Title"] = "Employee";
+}
+
+<div class="container mt-4" style="margin-bottom: 10%">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>@Model.Name @Model.LastName</h2>
+            <div class="my-hr my-page-intro-rule"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            PESEL:
+        </div>
+        <div class="col-md-6 text-primary">
+            @Model.PESEL
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Adres zamieszkania:
+        </div>
+        <div class="col-md-6 text-primary">
+            @Model.Address.City @Model.Address.PostalCode @Model.Address.Street @Model.Address.Number
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Numer telefonu:
+        </div>
+        <div class="col-md-6 text-primary">
+            @Model.ApplicationUser.PhoneNumber
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            Adres e-mail:
+        </div>
+        <div class="col-md-6 text-primary">
+            @Model.ApplicationUser.Email
+        </div>
+    </div>
+</div>

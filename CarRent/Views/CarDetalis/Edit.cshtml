@@ -1,0 +1,70 @@
+﻿@model EditCarDetalisView
+
+
+<div class="container my-form-page">
+    <div class="row">
+        <div class="col-md-6">
+            @if (Model.CarDetails.CarDetailsID != 0)
+            {
+                <h2 class="text-uppercase">Edycja danych <span class="text-primary">auta</span></h2>
+            }
+            else
+            {
+                <h2 class="text-uppercase">Dodanie danych <span class="text-primary">auta</span></h2>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="my-form">
+                <form asp-action="Edit" method="post">
+                    <input type="hidden" asp-for="CarDetails.CarDetailsID" />
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="CarDetails.RegistrationNumber">Numer rejestracyjny</label>
+                            <input asp-for="CarDetails.RegistrationNumber" class="form-control my-form-control" />
+                            <span asp-validation-for="CarDetails.RegistrationNumber" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="CarDetails.State">Stan</label>
+                            <select asp-for="CarDetails.State" asp-items="Html.GetEnumSelectList<StateType>()" class="form-control"></select>
+                            <span asp-validation-for="CarDetails.State" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="CarDetails.Car">Model i marka auta</label>
+                            <select asp-for="CarDetails.CarID" asp-items="@Model.CarList"
+                                    class="form-control my-form-control"></select>
+                            <span asp-validation-for="CarDetails.Car" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="CarDetails.Location">Lokalizacja</label>
+                            <select asp-for="CarDetails.LocationID" asp-items="@Model.LocationList"
+                                    class="form-control my-form-control"></select>
+                            <span asp-validation-for="CarDetails.Location" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="CarDetails.Comments">Uwagi:</label>
+                            <textarea asp-for="CarDetails.Comments" class="form-control" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-lg btn-primary">Zapisz</button>
+                        <a asp-action="CarDetalisList" class="btn btn-lg btn-warning">Anuluj</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

@@ -16,12 +16,13 @@ namespace CarRent.Models
         public string Phone_Number { get; set; }
 
         [Required(ErrorMessage = "Proszę podać adres e-mail.")]
-        [RegularExpression("/^[a-z\\d]+[\\w\\d.-]*@(?:[a-z\\d]+[a-z\\d-]+\\.){1,5}[a-z]{2,6}$/i",
+        [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*",
           ErrorMessage = "Podany adres e-mail jest nieprawidłowy.")]
         public string E_mail { get; set; }
 
         [ForeignKey("Address_ID")]
         public int? Address_ID { get; set; }
+        [Required]
         public virtual Address Address { get; set; }
         public virtual ICollection<CarDetails> CarDetails { get; set; } = new HashSet<CarDetails>();
         public virtual ICollection<Employee> Employees { get; set; } = new HashSet<Employee>();

@@ -1,0 +1,48 @@
+﻿@model Grade
+
+
+<div class="container my-form-page">
+    <div class="row">
+        <div class="col-md-6">
+            @if (Model.Grade_ID != 0)
+            {
+                <h2 class="text-uppercase">Edycja <span class="text-primary">kategorii @Model.GradeType.ToString()</span></h2>
+            }
+            else
+            {
+                <h2 class="text-uppercase">Dodanie <span class="text-primary">kategorii</span></h2>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="my-form">
+                <form asp-action="Edit" method="post">
+                    <input type="hidden" asp-for="Grade_ID" />
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="GradeType">Kategoria cenowa</label>
+                            <select asp-for="GradeType" asp-items="Html.GetEnumSelectList<GradeType>()" class="form-control"></select>
+                            <span asp-validation-for="GradeType" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label asp-for="PricePerDay">Cena za dzień:</label>
+                            <input asp-for="PricePerDay" class="form-control my-form-control" type="number" step="0.01"/>
+                            <span asp-validation-for="GradeType" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-lg btn-primary">Zapisz</button>
+                        <a asp-action="GradeList" class="btn btn-lg btn-warning">Anuluj</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

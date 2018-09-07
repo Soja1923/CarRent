@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace CarRent.Models
 {
     [Table("Person")]
-    public class Person
+    public abstract class Person
     {
         [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Person_ID { get; set; }

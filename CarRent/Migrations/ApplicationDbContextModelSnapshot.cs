@@ -118,7 +118,7 @@ namespace CarRent.Migrations
 
                     b.Property<int>("GradeID");
 
-                    b.Property<byte[]>("Img")
+                    b.Property<string>("Img")
                         .IsRequired();
 
                     b.Property<string>("Mark")
@@ -184,7 +184,8 @@ namespace CarRent.Migrations
                     b.Property<int>("Location_ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("Address_ID");
+                    b.Property<int?>("Address_ID")
+                        .IsRequired();
 
                     b.Property<string>("E_mail")
                         .IsRequired();
@@ -195,8 +196,7 @@ namespace CarRent.Migrations
                     b.HasKey("Location_ID");
 
                     b.HasIndex("Address_ID")
-                        .IsUnique()
-                        .HasFilter("[Address_ID] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Location");
                 });
@@ -448,7 +448,8 @@ namespace CarRent.Migrations
                 {
                     b.HasOne("CarRent.Models.Address", "Address")
                         .WithOne("Location")
-                        .HasForeignKey("CarRent.Models.Location", "Address_ID");
+                        .HasForeignKey("CarRent.Models.Location", "Address_ID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("CarRent.Models.Order", b =>

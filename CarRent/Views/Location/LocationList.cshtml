@@ -1,0 +1,25 @@
+﻿
+@model IEnumerable<Location>
+
+<section class="my-contact-page">
+    <div class="container">
+        <h2 class="text-uppercase">Punkty <span class="text-primary">wypożyczeń</span></h2>
+        <div class="my-hr my-page-intro-rule"></div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+            <div class="card mt-2 mr-2 mb-2 ml-2 pl-3" style="width: 22rem">
+                <div class="card-body">
+                    <h3 class="card-title">@item.Address.City</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">Kod pocztowy: @item.Address.PostalCode</h6>
+                    <div class="card-text ">
+                        <span>Adres:<strong> @item.Address.Street @item.Address.Number</strong></span><br />
+                        <span>Adres e-mail: <strong>@item.E_mail</strong></span><br />
+                        <span class="card-text">Numer telefonu: <strong>@item.Phone_Number</strong></span>
+                    </div>
+                </div>
+            </div>
+             }
+        </div>
+    </div>
+</section>

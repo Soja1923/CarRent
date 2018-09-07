@@ -8,7 +8,7 @@ namespace CarRent.Data.Repo
 {
     public class BaseRepo<T> : IRepo<T> where T : class
     {
-        private readonly ApplicationDbContext _dbContext;
+        protected readonly ApplicationDbContext _dbContext;
         public BaseRepo(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -20,11 +20,6 @@ namespace CarRent.Data.Repo
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task Create(T entity)
-        {
-            await Table.AddAsync(entity);
-            await _dbContext.SaveChangesAsync();
-        }
 
         public async Task Delete(int id)
         {
@@ -42,10 +37,8 @@ namespace CarRent.Data.Repo
         {
             return await Table.FindAsync(id);
         }
-        public async Task Update(T entity)
-        {
-            _dbContext.Set<T>().Update(entity);
-            await _dbContext.SaveChangesAsync();
-        }
+
+
+
     }
 }

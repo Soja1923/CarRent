@@ -12,7 +12,7 @@ namespace CarRent.Models
     {
         [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CarDetailsID { get; set; }
-        [Required(ErrorMessage ="Proszę podać numer rejestracyjny.")]
+        [Required(ErrorMessage = "Proszę podać numer rejestracyjny.")]
         public string RegistrationNumber { get; set; }
         [Required]
         public StateType State { get; set; }

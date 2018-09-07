@@ -23,6 +23,8 @@ namespace CarRent.Data
         public DbSet<Location> GetLocations { get; set; }
         public DbSet<Order> GetOrders { get; set; }
         public DbSet<UserRating> GetUserRatings { get; set; }
+        public DbSet<Employee> GetEmployees { get; set; }
+        public DbSet<Customer> GetCustomers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

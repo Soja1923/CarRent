@@ -1,0 +1,76 @@
+﻿@model Location
+
+
+<div class="container my-form-page">
+    <div class="row">
+        <div class="col-md-6">
+            @if (Model.Location_ID != 0)
+            {
+                <h2 class="text-uppercase">Edycja punktu <span class="text-primary">lokalizacji</span></h2>
+            }
+            else
+            {
+                <h2 class="text-uppercase">Dodanie punktu <span class="text-primary">lokalizacji</span></h2>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="my-form">
+                <form asp-action="Edit" method="post">
+                    <input type="hidden" asp-for="Location_ID" />
+                    <section class="addres">
+                        <div class="row">
+                            <div class="form-group col-md-9">
+                                <label asp-for="Address.City">Miasto</label>
+                                <input asp-for="Address.City" class="form-control my-form-control" />
+                                <span asp-validation-for="Address.City" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label asp-for="Address.PostalCode">Kod pocztowy</label>
+                                <input asp-for="Address.PostalCode" class="form-control my-form-control" />
+                                <span asp-validation-for="Address.PostalCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-9">
+                                <label asp-for="Address.Street">Ulica</label>
+                                <input asp-for="Address.Street" class="form-control my-form-control" />
+                                <span asp-validation-for="Address.Street" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label asp-for="Address.Number">Numer</label>
+                                <input asp-for="Address.Number" class="form-control my-form-control"/>
+                                <span asp-validation-for="Address.Number" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="contact">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label asp-for="Phone_Number">Numer telefonu</label>
+                                <input asp-for="Phone_Number" class="form-control my-form-control" />
+                                <span asp-validation-for="Phone_Number" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label asp-for="E_mail">E-mail</label>
+                                <input asp-for="E_mail" class="form-control my-form-control" />
+                                <span asp-validation-for="E_mail" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </section>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-lg btn-primary">Zapisz</button>
+                            <a asp-action="LocationListAdmin" class="btn btn-lg btn-warning">Anuluj</a>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

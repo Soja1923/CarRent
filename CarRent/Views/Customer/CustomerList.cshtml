@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Customer>
+
+@if (TempData["message"] != null)
+{
+    <div class="alert alert-success">@TempData["message"]</div>
+
+}
+<div class="container mt-4 mb-5">
+    <h2 class="text-uppercase">Wszyscy <span class="text-primary">klienci</span></h2>
+    <div class="my-hr my-page-intro-rule"></div>
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Nazwisko i Imię</th>
+            <th>Adres</th>
+            <th>PESEL</th>
+            <th class="text-center">Akcje</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.LastName @item.Name</td>
+                <td>@item.Address.City @item.Address.PostalCode @item.Address.Street @item.Address.Number</td>
+                <td>@item.PESEL</td>
+                <td class="text-center">
+                    <a asp-action="Customer" class="btn btn-sm btn-info mt-2 mb-2"
+                       asp-route-employeId="@item.Person_ID">INFO</a>
+                    <a asp-controller="Order" asp-action="OrderHistory" class="btn btn-sm btn-info mt-2 mb-2"
+                       asp-route-employeId="@item.Person_ID">HISTORIA</a>
+                </td>
+            </tr>
+
+        }
+    </table>
+</div>

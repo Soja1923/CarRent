@@ -7,15 +7,15 @@
     <div class="container">
         <div class="my-car-page-data">
             <div class="row">
-                <div class="col-lg-6 pl-md-5 pl-lg-0 d-md-flex my-img">
-                    <img class="img-fluid my-car-img" src="~/img/tmp/car_1.png" alt="" />
+                <div class="col-lg-6 pl-md-5 pl-lg-0">
+                    <img class="img-fluid my-car-img"  src="~/uploads/@Model.Car_ID/@Model.Img" />
                 </div>
                 <div class="col-lg-6">
                     <div class="row">
                         <div class="col">
-                            <h4 class="text-uppercase my-car-name my-text-large">Nazwa</h4>
+                            <h4 class="text-uppercase my-car-name my-text-large">@Model.Mark @Model.Model</h4>
                             <div class="d-flex align-items-center justify-content-between my-car-page-price-box">
-                                <span class="my-car-price my-text-large">68 zł/dzień</span>
+                                <span class="my-car-price my-text-large">@Model.Grade.PricePerDay zł/dzień</span>
                                 <div class="mr-0 my-text-large">
                                     <i class="fa fa-plus text-success mr-1"> 68 </i>
                                     <i class="fa fa-minus text-danger ml-1"> 7 </i>
@@ -27,12 +27,12 @@
                     <div class="row">
                         <div class="col-md-8 my-car-info">
                             <ul class="list-group text-uppercase font-weight-bold mb-4">
-                                <li class="list-group-item">silnik <span class="text-primary float-right">silnik cm<sup>3</sup></span></li>
-                                <li class="list-group-item">rodzaj paliwa <span class="text-primary float-right">benzyna</span></li>
-                                <li class="list-group-item">skrzynia biegów <span class="text-primary float-right"></span></li>
-                                <li class="list-group-item">rok <span class="text-primary float-right">2019</span></li>
-                                <li class="list-group-item">nadwozie <span class="text-primary float-right">sSedan</span></li>
-                                <li class="list-group-item">liczba miejsc <span class="text-primary float-right">5</span></li>
+                                <li class="list-group-item">silnik <span class="text-primary float-right">@Model.EngineCapacity cm<sup>3</sup></span></li>
+                                <li class="list-group-item">rodzaj paliwa <span class="text-primary float-right">@Model.Fuel.ToString()</span></li>
+                                <li class="list-group-item">skrzynia biegów <span class="text-primary float-right">@Model.GearboxType.ToString()</span></li>
+                                <li class="list-group-item">rok <span class="text-primary float-right">@Model.Year</span></li>
+                                <li class="list-group-item">nadwozie <span class="text-primary float-right">@Model.Body</span></li>
+                                <li class="list-group-item">liczba miejsc <span class="text-primary float-right">@Model.NumberOfSeats</span></li>
                             </ul>
                             <button class="btn btn-primary btn-lg text-white text-uppercase">zarezerwuj</button>
                         </div>
@@ -55,7 +55,6 @@
                     <div class="tab-content">
                         <!--description -->
                         <div id="car-page-desc" class="tab-pane active my-car-page-desc-text">
-                            <h4 class="mb-3 my-text-large">Lorem ipsum dolor magi lewiatan</h4>
                             <p>
                                 @Model.Description
                             </p>
