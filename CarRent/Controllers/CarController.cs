@@ -8,7 +8,6 @@ using CarRent.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
-using System;
 using System.Threading.Tasks;
 
 namespace CarRent.Controllers
@@ -67,7 +66,7 @@ namespace CarRent.Controllers
                     },
                     CurrentCategory = category
                 });
-
+       
         public ViewResult Edit(int carID) =>
             View(new EditCarView
             {

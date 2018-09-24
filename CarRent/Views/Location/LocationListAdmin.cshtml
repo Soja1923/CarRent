@@ -27,7 +27,7 @@
                 <td class="text-center">
                     <a asp-action="Edit" class="btn btn-sm btn-warning mt-2 mb-2"
                        asp-route-locationId="@item.Location_ID">EDYTUJ</a>
-                    <a asp-action="ShowDetal" class="btn btn-sm btn-info mt-2 mb-2"
+                    <a asp-controller="Admin" asp-action="LocationIndex" class="btn btn-sm btn-info mt-2 mb-2"
                        asp-route-locationId="@item.Location_ID">INFO</a>
                 </td>
             </tr>

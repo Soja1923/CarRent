@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Order\" />
     <Folder Include="wwwroot\css\" />
     <Folder Include="wwwroot\uploads\1\" />
     <Folder Include="wwwroot\uploads\2\" />

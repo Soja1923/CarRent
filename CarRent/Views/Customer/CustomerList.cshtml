@@ -23,9 +23,9 @@
                 <td>@item.PESEL</td>
                 <td class="text-center">
                     <a asp-action="Customer" class="btn btn-sm btn-info mt-2 mb-2"
-                       asp-route-employeId="@item.Person_ID">INFO</a>
+                       asp-route-customerID="@item.Person_ID">INFO</a>
                     <a asp-controller="Order" asp-action="OrderHistory" class="btn btn-sm btn-info mt-2 mb-2"
-                       asp-route-employeId="@item.Person_ID">HISTORIA</a>
+                       asp-route-customerID="@item.Person_ID">HISTORIA</a>
                 </td>
             </tr>
 

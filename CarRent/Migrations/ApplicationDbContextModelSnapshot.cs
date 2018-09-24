@@ -210,9 +210,19 @@ namespace CarRent.Migrations
 
                     b.Property<DateTime>("DateEnd");
 
+                    b.Property<DateTime>("DateOfReturn");
+
                     b.Property<DateTime>("DateStart");
 
+                    b.Property<string>("LocationEnd")
+                        .IsRequired();
+
+                    b.Property<string>("LocationStart")
+                        .IsRequired();
+
                     b.Property<int>("Person_ID");
+
+                    b.Property<string>("RegistrationNumberCar");
 
                     b.Property<int>("State");
 

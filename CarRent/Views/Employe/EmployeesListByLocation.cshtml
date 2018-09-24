@@ -21,18 +21,16 @@
         </tr>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>@item.LastName @item.Name</td>
-            <td>@item.Address.City @item.Address.PostalCode @item.Address.Street @item.Address.Number</td>
-            <td>@item.PESEL</td>
-            <td>@item.Location.Address.City @item.Location.Address.PostalCode @item.Location.Address.Street @item.Location.Address.Number</td>
-            <td class="text-center">
-                <a asp-action="Employe" class="btn btn-sm btn-info mt-2 mb-2"
-                   asp-route-employeId="@item.Person_ID">INFO</a>
-                <a asp-action="Edit" class="btn btn-sm btn-info mt-2 mb-2"
-                   asp-route-employeId="@item.Person_ID">EDYCJA</a>
-            </td>
-        </tr>
+            <tr>
+                <td>@item.LastName @item.Name</td>
+                <td>@item.Address.City @item.Address.PostalCode @item.Address.Street @item.Address.Number</td>
+                <td>@item.PESEL</td>
+                <td>@item.Location.Address.City @item.Location.Address.PostalCode @item.Location.Address.Street @item.Location.Address.Number</td>
+                <td class="text-center">
+                    <a asp-action="Employe" class="btn btn-sm btn-info mt-2 mb-2"
+                       asp-route-employeId="@item.Person_ID">INFO</a>
+                </td>
+            </tr>
 
         }
     </table>

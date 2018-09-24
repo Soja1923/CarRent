@@ -31,7 +31,15 @@ namespace CarRent.Controllers
                  .Include(a=> a.Location.Address)
                  );
 
-        
+        public ViewResult CarDetalisListByLocation(int locationId)
+           => View(
+               repo.GetAll()
+               .Where(l=>l.LocationID==locationId)
+               .OrderBy(l => l.RegistrationNumber)
+               .Include(a => a.Car)
+               .Include(a => a.Location.Address)
+               );
+
         List<SelectListItem> SelectListItemsCar(EditCarDetalisView vm)
         {
             var carList = repoCar.GetAll().ToList();

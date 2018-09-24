@@ -308,8 +308,12 @@ namespace CarRent.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CarID = table.Column<int>(nullable: false),
                     DateEnd = table.Column<DateTime>(nullable: false),
+                    DateOfReturn = table.Column<DateTime>(nullable: false),
                     DateStart = table.Column<DateTime>(nullable: false),
+                    LocationEnd = table.Column<string>(nullable: false),
+                    LocationStart = table.Column<string>(nullable: false),
                     Person_ID = table.Column<int>(nullable: false),
+                    RegistrationNumberCar = table.Column<string>(nullable: true),
                     State = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

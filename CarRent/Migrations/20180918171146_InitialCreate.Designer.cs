@@ -13,7 +13,7 @@ using System;
 namespace CarRent.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180906204704_InitialCreate")]
+    [Migration("20180918171146_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -211,9 +211,19 @@ namespace CarRent.Migrations
 
                     b.Property<DateTime>("DateEnd");
 
+                    b.Property<DateTime>("DateOfReturn");
+
                     b.Property<DateTime>("DateStart");
 
+                    b.Property<string>("LocationEnd")
+                        .IsRequired();
+
+                    b.Property<string>("LocationStart")
+                        .IsRequired();
+
                     b.Property<int>("Person_ID");
+
+                    b.Property<string>("RegistrationNumberCar");
 
                     b.Property<int>("State");
 

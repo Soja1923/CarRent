@@ -6,6 +6,7 @@ using CarRent.Data;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using System.IO;
+using System;
 
 namespace CarRent.Models.SeedData
 {
@@ -72,8 +73,8 @@ namespace CarRent.Models.SeedData
                 new Address { City = "Lublin", Street = "Gołębia", Number = "21", PostalCode = "91-187" },
                 new Address { City = "Lublin", Street = "Jaskółcza", Number = "6", PostalCode = "91-187" }
             };
-            
-        
+
+
             var locations = new List<Location>()
             {
                 new Location { Address = addresses[0], E_mail="carrentWarszawa@gmail.com", Phone_Number="111-222-333",  },
@@ -83,7 +84,7 @@ namespace CarRent.Models.SeedData
                 new Location { Address = addresses[4], E_mail = "carrentSzczecin@gmail.com", Phone_Number = "666-777-888" },
                 new Location { Address = addresses[5], E_mail = "carrentLublin@gmial.com", Phone_Number = "777-888-999" }
             };
-               
+
 
             var users = new List<ApplicationUser>
             {
@@ -144,7 +145,7 @@ namespace CarRent.Models.SeedData
                 new Customer{Name="Mateusz", LastName="Nowak", PESEL="28062036775", Address=addresses[28], ApplicationUser=users[22]},
                 new Customer{Name="Anna", LastName="Domagała", PESEL="62061687280", Address=addresses[29], ApplicationUser=users[23]}
             };
-       
+
             string directoryName = Directory.GetCurrentDirectory();
             var cars = new List<Car>()
             {
@@ -528,6 +529,53 @@ namespace CarRent.Models.SeedData
                 new CarDetails{Location=locations[5], Car=cars[19], State=StateType.Uszkodzony, RegistrationNumber="LU157HJ"},
             };
 
+            var orders = new List<Order>
+            {
+                new Order{DateStart=new DateTime(2018,9,1), DateEnd=new DateTime(2018,9,3), DateOfReturn=new DateTime(2018,9,4), State=State.Oddany, Car=carsDetal[0].Car,
+                    Customer =customers[0], RegistrationNumberCar=carsDetal[0].RegistrationNumber,
+                    LocationStart =carsDetal[0].Location.Address.City+" "+carsDetal[0].Location.Address.PostalCode+" "+carsDetal[0].Location.Address.Street+" "+carsDetal[0].Location.Address.Number,
+                    LocationEnd =locations[0].Address.City+" "+locations[0].Address.PostalCode+" "+locations[0].Address.Street+" "+locations[0].Address.Number },
+                new Order{DateStart=new DateTime(2018,9,1), DateEnd=new DateTime(2018,9,3), DateOfReturn=new DateTime(2018,9,3), State=State.Oddany, Car=carsDetal[0].Car,
+                    Customer =customers[0], RegistrationNumberCar=carsDetal[0].RegistrationNumber,
+                    LocationStart =carsDetal[0].Location.Address.City+" "+carsDetal[0].Location.Address.PostalCode+" "+carsDetal[0].Location.Address.Street+" "+carsDetal[0].Location.Address.Number,
+                    LocationEnd =locations[0].Address.City+" "+locations[0].Address.PostalCode+" "+locations[0].Address.Street+" "+locations[0].Address.Number },
+                new Order{DateStart=new DateTime(2018,8,15), DateEnd=new DateTime(2018,8,23), DateOfReturn=new DateTime(2018,8,23), State=State.Oddany, Car=carsDetal[5].Car,
+                    Customer =customers[5], RegistrationNumberCar=carsDetal[0].RegistrationNumber,
+                    LocationStart =carsDetal[5].Location.Address.City+" "+carsDetal[5].Location.Address.PostalCode+" "+carsDetal[5].Location.Address.Street+" "+carsDetal[5].Location.Address.Number,
+                    LocationEnd =locations[4].Address.City+" "+locations[4].Address.PostalCode+" "+locations[4].Address.Street+" "+locations[4].Address.Number},
+                new Order{DateStart=new DateTime(2016,5,23), DateEnd=new DateTime(2016,5,27), DateOfReturn=new DateTime(2016,5,27), State=State.Oddany, Car=carsDetal[17].Car,
+                    Customer =customers[0], RegistrationNumberCar=carsDetal[17].RegistrationNumber,
+                    LocationStart =carsDetal[17].Location.Address.City+" "+carsDetal[17].Location.Address.PostalCode+" "+carsDetal[17].Location.Address.Street+" "+carsDetal[17].Location.Address.Number,
+                    LocationEnd =locations[4].Address.City+" "+locations[4].Address.PostalCode+" "+locations[4].Address.Street+" "+locations[4].Address.Number},
+                new Order{DateStart=new DateTime(2018,10,10), DateEnd=new DateTime(2018,10,20), State=State.Zarezerwowany, Car=carsDetal[0].Car,
+                    Customer =customers[0], RegistrationNumberCar=carsDetal[0].RegistrationNumber,
+                    LocationStart =carsDetal[10].Location.Address.City+" "+carsDetal[10].Location.Address.PostalCode+" "+carsDetal[10].Location.Address.Street+" "+carsDetal[10].Location.Address.Number,
+                    LocationEnd =locations[1].Address.City+" "+locations[1].Address.PostalCode+" "+locations[1].Address.Street+" "+locations[1].Address.Number},
+                new Order{DateStart=new DateTime(2018,8,12), DateEnd=new DateTime(2018,8,14), State=State.Wypożyczony, Car=carsDetal[0].Car,
+                    Customer =customers[0], RegistrationNumberCar=carsDetal[0].RegistrationNumber,
+                    LocationStart =carsDetal[0].Location.Address.City+" "+carsDetal[0].Location.Address.PostalCode+" "+carsDetal[0].Location.Address.Street+" "+carsDetal[0].Location.Address.Number,
+                    LocationEnd =locations[4].Address.City+" "+locations[4].Address.PostalCode+" "+locations[4].Address.Street+" "+locations[4].Address.Number},
+                new Order{DateStart=new DateTime(2018,11,1), DateEnd=new DateTime(2018,11,3), State=State.Zarezerwowany, Car=carsDetal[11].Car,
+                    Customer =customers[2], RegistrationNumberCar=carsDetal[11].RegistrationNumber,
+                    LocationStart =carsDetal[11].Location.Address.City+" "+carsDetal[11].Location.Address.PostalCode+" "+carsDetal[11].Location.Address.Street+" "+carsDetal[11].Location.Address.Number,
+                    LocationEnd =locations[3].Address.City+" "+locations[3].Address.PostalCode+" "+locations[3].Address.Street+" "+locations[3].Address.Number},
+                new Order{DateStart=new DateTime(2018,8,20), DateEnd=new DateTime(2018,8,23), DateOfReturn=new DateTime(2018,8,23), State=State.Oddany, Car=carsDetal[15].Car,
+                    Customer =customers[2], RegistrationNumberCar=carsDetal[15].RegistrationNumber,
+                    LocationStart =carsDetal[15].Location.Address.City+" "+carsDetal[15].Location.Address.PostalCode+" "+carsDetal[15].Location.Address.Street+" "+carsDetal[15].Location.Address.Number,
+                    LocationEnd =locations[2].Address.City+" "+locations[2].Address.PostalCode+" "+locations[2].Address.Street+" "+locations[2].Address.Number},
+                new Order{DateStart=new DateTime(2016,8,23), DateEnd=new DateTime(2016,8,27), State=State.Wypożyczony, Car=carsDetal[17].Car,
+                    Customer =customers[5], RegistrationNumberCar=carsDetal[17].RegistrationNumber,
+                    LocationStart =carsDetal[17].Location.Address.City+" "+carsDetal[17].Location.Address.PostalCode+" "+carsDetal[17].Location.Address.Street+" "+carsDetal[17].Location.Address.Number,
+                    LocationEnd =locations[0].Address.City+" "+locations[0].Address.PostalCode+" "+locations[0].Address.Street+" "+locations[0].Address.Number},
+                new Order{DateStart=new DateTime(2018,10,10), DateEnd=new DateTime(2018,10,20), State=State.Wypożyczony, Car=carsDetal[2].Car,
+                    Customer =customers[4], RegistrationNumberCar=carsDetal[0].RegistrationNumber,
+                    LocationStart =carsDetal[2].Location.Address.City+" "+carsDetal[2].Location.Address.PostalCode+" "+carsDetal[2].Location.Address.Street+" "+carsDetal[2].Location.Address.Number,
+                    LocationEnd =locations[0].Address.City+" "+locations[1].Address.PostalCode+" "+locations[1].Address.Street+" "+locations[1].Address.Number},
+                new Order{DateStart=new DateTime(2018,8,12), DateEnd=new DateTime(2018,8,14), State=State.Wypożyczony, Car=carsDetal[0].Car,
+                    Customer =customers[7], RegistrationNumberCar=carsDetal[2].RegistrationNumber,
+                    LocationStart =carsDetal[0].Location.Address.City+" "+carsDetal[0].Location.Address.PostalCode+" "+carsDetal[0].Location.Address.Street+" "+carsDetal[0].Location.Address.Number,
+                    LocationEnd =locations[0].Address.City+" "+locations[1].Address.PostalCode+" "+locations[1].Address.Street+" "+locations[1].Address.Number},
+            };
 
             if (!dbContext.GetGrades.Any())
             {
@@ -562,7 +610,7 @@ namespace CarRent.Models.SeedData
 
             if (!dbContext.GetCars.Any())
             {
-                for(int i=0; i<cars.Count; i++)
+                for (int i = 0; i < cars.Count; i++)
                 {
                     dbContext.GetCars.Add(cars[i]);
                     dbContext.SaveChanges();
@@ -572,6 +620,12 @@ namespace CarRent.Models.SeedData
             if (!dbContext.GetCarDetails.Any())
             {
                 dbContext.GetCarDetails.AddRange(carsDetal);
+                dbContext.SaveChanges();
+            }
+
+            if (!dbContext.GetOrders.Any())
+            {
+                dbContext.GetOrders.AddRange(orders);
                 dbContext.SaveChanges();
             }
         }

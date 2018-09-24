@@ -24,10 +24,10 @@ namespace CarRent.Controllers
                  .Include(a => a.Address)
                  );
 
-        public IActionResult Customer(int employeId)
+        public IActionResult Customer(int customerID)
             => View(repo.GetAll()
                 .Include(a => a.ApplicationUser)
                 .Include(a => a.Address)
-                .FirstOrDefault(p => p.Person_ID == employeId));
+                .FirstOrDefault(p => p.Person_ID == customerID));
     }
 }

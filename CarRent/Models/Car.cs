@@ -18,7 +18,7 @@ namespace CarRent.Models
         [Required(ErrorMessage = "Proszę podać marke auta.")]
         [StringLength(30)]
         public string Mark { get; set; }
-        [Required(ErrorMessage ="Proszę wybrać zdjęcie.")]
+        [Required(ErrorMessage = "Proszę wybrać zdjęcie.")]
         public string Img { get; set; }
         [Required]
         public Gearbox GearboxType { get; set; }
@@ -43,6 +43,11 @@ namespace CarRent.Models
         public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
         public virtual ICollection<CarDetails> CarsDetails { get; set; } = new HashSet<CarDetails>();
         public virtual ICollection<UserRating> UserRatings { get; set; } = new HashSet<UserRating>();
+
+        public override string ToString()
+        {
+                return Mark + " " + Model;
+        }
     }
 
     public enum Gearbox

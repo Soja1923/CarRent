@@ -17,7 +17,12 @@ namespace CarRent.Models
         [Required(ErrorMessage = "Proszę podać datę zwrotu auta.")]
         public DateTime DateEnd { get; set; }
         public State State { get; set; }
-
+        public DateTime DateOfReturn { get; set; }
+        public string RegistrationNumberCar { get; set; }
+        [Required]
+        public string LocationStart { get; set; }
+        [Required]
+        public string LocationEnd { get; set; }
         [Required]
         public int Person_ID { get; set; }
         [ForeignKey(" Person_ID")]
@@ -26,6 +31,7 @@ namespace CarRent.Models
         public int CarID { get; set; }
         [ForeignKey("CarID")]
         public virtual Car Car { get; set; }
+
     }
 
     public enum State

@@ -1,0 +1,138 @@
+﻿@model OrderView
+@{
+    ViewData["Title"] = "Employee";
+}
+
+<div class="container mt-4" style="margin-bottom: 10%">
+    <div class="row">
+        <div class="col-md-10">
+            <h2>Wyporzyczenie</h2>
+            <div class="my-hr my-page-intro-rule"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Klient:
+        </div>
+        <div class="col-md-3">
+            @Model.Order.Customer.Name @Model.Order.Customer.LastName
+        </div>
+        <div class="col-md-2">
+            Numer rejestracyjny:
+        </div>
+        <div class="col-md-3">
+            @Model.Order.RegistrationNumberCar
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Auto:
+        </div>
+        <div class="col-md-6">
+            @Model.Order.Car.Mark @Model.Order.Car.Model
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Miejsce zwrotu:
+        </div>
+        <div class="col-md-3">
+            @Model.Order.LocationStart
+        </div>
+        <div class="col-md-2">
+            Miejsce odbioru:
+        </div>
+        <div class="col-md-3">
+            @Model.Order.LocationEnd
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Stan:
+        </div>
+        <div class="col-md-3">
+            @Model.Order.State
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <a asp-controller="Order" asp-action="EditState" class="btn btn-sm btn-info mt-2 mb-2"
+               asp-route-orderId="@Model.Order.Order_ID" asp-route-registerNumber="@Model.Order.RegistrationNumberCar">ZMIEŃ STAN</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Cena za dzień:
+        </div>
+        <div class="col-md-6">
+            @Model.Order.Car.Grade.PricePerDay zł
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            Liczba dni:
+        </div>
+        <div class="col-md-3">
+            @((Model.Order.DateEnd - Model.Order.DateStart).TotalDays)
+        </div>
+        <div class="col-md-2">
+            Do zapłaty:
+        </div>
+        <div class="col-md-2">
+            @(Model.Order.Car.Grade.PricePerDay * (Model.Order.DateEnd - Model.Order.DateStart).TotalDays) zł
+        </div>
+    </div>
+    @if (Model.Order.DateEnd < DateTime.Now && Model.Order.State.ToString() == "Wypożyczony")
+    {
+        <div class="row text-danger">
+            <div class="col-md-2">
+                Liczba zaległych dni:
+            </div>
+            <div class="col-md-3">
+                @((DateTime.Now.Date - Model.Order.DateEnd).TotalDays)
+            </div>
+            <div class="col-md-2">
+                Do zapłaty:
+            </div>
+            <div class="col-md-2">
+                @(Model.Order.Car.Grade.PricePerDay * (DateTime.Now.Date - Model.Order.DateEnd).TotalDays) zł
+            </div>
+        </div>
+        <div class="row text-success">
+            <div class="col-md-2">
+                Do zapłaty razem:
+            </div>
+            <div class="col-md-6">
+                @(Model.Order.Car.Grade.PricePerDay * (((Model.Order.DateEnd - Model.Order.DateStart).TotalDays) + (DateTime.Now.Date - Model.Order.DateEnd).TotalDays)) zł
+            </div>
+        </div>
+
+    }
+    @if (Model.Order.DateEnd < Model.Order.DateOfReturn && Model.Order.State.ToString() == "Oddany")
+    {
+        <div class="row text-danger">
+            <div class="col-md-2">
+                Liczba zaległych dni:
+            </div>
+            <div class="col-md-3">
+                @((Model.Order.DateOfReturn - Model.Order.DateEnd).TotalDays)
+            </div>
+            <div class="col-md-2">
+                Do zapłaty:
+            </div>
+            <div class="col-md-2">
+                @(Model.Order.Car.Grade.PricePerDay * (Model.Order.DateOfReturn - Model.Order.DateEnd).TotalDays) zł
+            </div>
+        </div>
+        <div class="row text-success">
+            <div class="col-md-2">
+                Do zapłaty razem:
+            </div>
+            <div class="col-md-6">
+                @(Model.Order.Car.Grade.PricePerDay * (((Model.Order.DateEnd - Model.Order.DateStart).TotalDays) + (Model.Order.DateOfReturn - Model.Order.DateEnd).TotalDays)) zł
+            </div>
+        </div>
+
+    }
+
+</div>

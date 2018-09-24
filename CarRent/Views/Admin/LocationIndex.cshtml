@@ -1,0 +1,27 @@
+﻿@model Location
+
+<div class="container mt-4" style="margin-bottom: 10%">
+    <h2 class="text-uppercase">Salon <span class="text-primary">@Model.Address @Model.Location_ID</span></h2>
+    <div class="my-hr my-page-intro-rule"></div>
+    <div class="row">
+        <div class="col-md-3">
+            Numer telefonu
+        </div>
+        <div class="col-md-3">
+            @Model.Phone_Number
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            Adres e-mail
+        </div>
+        <div class="col-md-3">
+            @Model.E_mail
+        </div>
+    </div>
+    <ul>
+        <li><a asp-controller="CarDetalis" asp-action="CarDetalisListByLocation" asp-route-locationId="@Model.Location_ID">Dostępne auta</a></li>
+        <li><a asp-controller="Employe" asp-action="EmployeesListByLocation" asp-route-locationId="@Model.Location_ID">Pracownicy</a></li>
+        <li><a asp-controller="Order" asp-action="OrderListByLocation" asp-route-location="@Model.Address">Zamówienia</a></li>
+    </ul>
+</div>

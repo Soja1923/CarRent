@@ -1,4 +1,5 @@
 ﻿using CarRent.Models;
+using System;
 
 namespace CarRent.Data.Repo
 {
@@ -8,5 +9,14 @@ namespace CarRent.Data.Repo
         {
             Table = dbContext.GetOrders;
         }
+
+        public void EditState(Order order)
+        {
+                Order dbEntry = Table.Find(order.Order_ID);
+                dbEntry.State = order.State;
+                dbEntry.DateOfReturn = DateTime.Now;
+                _dbContext.SaveChanges();
+        }
     }
 }
+

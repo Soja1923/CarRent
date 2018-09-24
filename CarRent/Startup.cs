@@ -67,19 +67,25 @@ namespace CarRent
             app.UseAuthentication();
             app.UseMvc(routes =>
             {
+                
+                routes.MapRoute(
+                   name: null,
+                   template: "Admin/Auta/{category}/Strona{carPage:int}",
+                   defaults: new { controller = "Car", action = "CarsListAdmin", carPage = 1 }
+                   );
+                routes.MapRoute(
+                    name: null,
+                    template: "Admin/Auta/Strona{carPage:int}",
+                    defaults: new { controller = "Car", action = "CarsListAdmin", carPage = 1 }
+                    );
                 routes.MapRoute(
                     name: null,
                     template: "Oferta/{category}/Strona{carPage:int}",
                     defaults: new { controller="Car", action= "CarsList" }
                 );
                 routes.MapRoute(
-                      name: null,
-                      template: "Oferta/Lokalizajca{locationId}",
-                      defaults: new { controller = "Car", action = "CarsList" }
-                      );
-                routes.MapRoute(
                     name: null,
-                    template: "Strona{carPage:int}",
+                    template: "Oferta/Strona{carPage:int}",
                     defaults: new { controller = "Car", action = "CarsList", carPage = 1 }
                     );
                 routes.MapRoute(

@@ -1,0 +1,97 @@
+﻿@model AddEmploye
+
+<div class="container my-form-page">
+    <div class="row">
+        <div class="col-md-3">
+            <h2 class="text-primary">Edytuj dane pracownika</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="my-form">
+                <form  method="post">
+                    <h3>Utwórz nowe konto</h3>
+                    <div class="my-hr"></div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="RegisterView.Email"></label>
+                        <input asp-for="RegisterView.Email" class="form-control" />
+                        <span asp-validation-for="RegisterView.Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegisterView.Password">Hasło</label>
+                        <input asp-for="RegisterView.Password" class="form-control" />
+                        <span asp-validation-for="RegisterView.Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RegisterView.ConfirmPassword">Potwierdź hasło</label>
+                        <input asp-for="RegisterView.ConfirmPassword" class="form-control" />
+                        <span asp-validation-for="RegisterView.ConfirmPassword" class="text-danger"></span>
+                    </div>
+                    <section class="basic-information">
+                        <h4 class="">Podstawowe informacje</h4>
+                        <div class="my-hr"></div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label asp-for="Employee.Name">Imię</label>
+                                <input asp-for="Employee.Name" class="form-control my-form-control" type="text" />
+                                <span asp-validation-for="Employee.Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label asp-for="Employee.LastName">Nazwisko</label>
+                                <input asp-for="Employee.LastName" class="form-control my-form-control" type="text" />
+                                <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label asp-for="Employee.PESEL">PESEL</label>
+                                <input asp-for="Employee.PESEL" class="form-control my-form-control" type="text" />
+                                <span asp-validation-for="Employee.PESEL" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label asp-for="ApplicationUser.PhoneNumber" for="phone-number">Numer telefonu</label>
+                                <input asp-for="ApplicationUser.PhoneNumber" class="form-control my-form-control" type="text" />
+                                <span asp-validation-for="ApplicationUser.PhoneNumber" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="addres">
+                        <h4>Adres</h4>
+                        <div class="my-hr"></div>
+                        <div class="row">
+                            <div class="form-group col-md-9">
+                                <label asp-for="Employee.Address.City">Miasto</label>
+                                <input asp-for="Employee.Address.City" class="form-control my-form-control" type="text" />
+                                <span asp-validation-for="Employee.Address.City" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label asp-for="Employee.Address.PostalCode">Kod pocztowy</label>
+                                <input asp-for="Employee.Address.PostalCode" class="form-control my-form-control" type="text" />
+                                <span asp-validation-for="Employee.Address.PostalCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-9">
+                                <label asp-for="Employee.Address.Street">Ulica</label>
+                                <input asp-for="Employee.Address.Street" class="form-control my-form-control" type="text" />
+                                <span asp-validation-for="Employee.Address.Street" class="text-danger"></span>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label asp-for="Employee.Address.Number">Numer</label>
+                                <input asp-for="Employee.Address.Number" class="form-control my-form-control" type="text"/>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-primary text-white">Zapisz</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

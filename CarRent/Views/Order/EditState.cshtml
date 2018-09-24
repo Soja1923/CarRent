@@ -1,0 +1,69 @@
+﻿@model Order
+
+
+<div class="container my-form-page">
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="my-form">
+                <form asp-action="EditState" method="post">
+                    <input type="hidden" asp-for="Order_ID"/>
+                    <input type="hidden" asp-for="CarID" />
+                    <input type="hidden" asp-for="DateStart" class="form-control my-form-control" />
+                    <input type="hidden" asp-for="DateEnd" class="form-control my-form-control" />
+                    <input type="hidden" asp-for="DateOfReturn" class="form-control my-form-control" />
+                    <input type="hidden" asp-for="LocationStart" class="form-control my-form-control" />
+                    <input type="hidden" asp-for="LocationEnd" class="form-control my-form-control" />
+                    <input type="hidden"  asp-for="RegistrationNumberCar" class="form-control my-form-control" />
+                    <input type="hidden"  asp-for="Car" class="form-control my-form-control" />
+                    <input type="hidden"  asp-for="Customer" class="form-control my-form-control" />
+
+                    @if (Model.State.ToString() == "Oddany")
+                    {
+                        <div style="margin-bottom:30%">
+                            <h3 class="text-success">Auto zostało oddane</h3>
+                        </div>
+                    }
+                    @if (Model.State.ToString() == "Wypożyczony")
+                    {
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Aktualny stan</label>
+                                <h4 class="text-danger">@Model.State.ToString()</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label asp-for="State">Następny stan</label>
+                                <input asp-for="State" value="Oddany" class="form-control my-form-control" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-lg btn-primary">Zmień stan</button>
+                            <a asp-action="OrderList" class="btn btn-lg btn-warning">Anuluj</a>
+                        </div>
+                    }
+                    @if (Model.State.ToString() == "Zarezerwowany")
+                    {
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Aktualny stan</label>
+                                <h4 class="text-success">@Model.State.ToString()</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label asp-for="State">Następny stan</label>
+                                <input asp-for="State" value="Wypożyczony" class="form-control my-form-control" disabled />
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-lg btn-primary">Zmień stan</button>
+                            <a asp-action="OrderList" class="btn btn-lg btn-warning">Anuluj</a>
+                        </div>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
